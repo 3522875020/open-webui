@@ -1,3 +1,11 @@
+const os = require('os');
+const arch = os.arch();
+
+if (process.env.SKIP_PYODIDE || arch === 's390x') {
+	console.log('Skipping Pyodide setup for s390x architecture');
+	process.exit(0);
+}
+
 const packages = [
 	'micropip',
 	'packaging',
